@@ -4,12 +4,12 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-//Declarando a funÁ„o fora do escopo da funÁ„o main
+//Declarando a fun√ß√£o fora do escopo da fun√ß√£o main
 
-int identificarDivisivelPor3(int matrizA[][5]){ //Dentro do parametro da funÁ„o, a vari·vel recebeu o mesmo nome da matriz, adicionando o A
+int identificarDivisivelPor3(int matrizA[][5]){ //Dentro do parametro da fun√ß√£o, a vari√°vel recebeu o mesmo nome da matriz, adicionando o A
 int line, column;
 
-	printf("Os n˙meros da matriz s„o: \n");
+	printf("Os n√∫meros da matriz s√£o: \n");
 	for(line = 0; line<5; line++){
 		for(column = 0; column<5; column++){
 			
@@ -18,10 +18,10 @@ int line, column;
 		printf("\n");		
 	}
 	
-	for(line = 0; line<5; line++){ 			//Verifica se o n˙mero È divisÌvel por 3 e imprime o resultado
+	for(line = 0; line<5; line++){ 			//Verifica se o n√∫mero √© divis√≠vel por 3 e imprime o resultado
 		for(column = 0; column<5; column++){
 			if(matrizA[line][column] % 3 == 0){
-				printf("O n˙mero %d È divisÌvel por 3, e est· na linha %d e coluna %d \n", matrizA[line][column], line, column);
+				printf("O n√∫mero %d √© divis√≠vel por 3, e est√° na linha %d e coluna %d \n", matrizA[line][column], line+1, column+1);
 				printf("--------------------------------------------------------- \n");
 			}
 			
@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
                         {6,32,28,25,62},
                         {72,91,81,16,41}}; 
                        
-    identificarDivisivelPor3(matriz); //Chamando a funÁ„o passando como parametro a matriz
+    identificarDivisivelPor3(matriz); //Chamando a fun√ß√£o passando como parametro a matriz
     
 	
 	return 0;
