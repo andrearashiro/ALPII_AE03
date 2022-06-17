@@ -1,46 +1,82 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <locale.h>
+#include <stdlib.h>
 
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
-
-//Declarando a função fora do escopo da função main
-
-int identificarDivisivelPor3(int matrizA[][5]){ //Dentro do parametro da função, a variável recebeu o mesmo nome da matriz, adicionando o A
-int line, column;
-
-	printf("Os números da matriz são: \n");
-	for(line = 0; line<5; line++){
-		for(column = 0; column<5; column++){
-			
-			printf("[%d]", matrizA[line][column]);
+//Subrotina para testar se o número do gado já foi digitado
+void existeGado(int numeroGado, int matrizGado[42])
+{
+    int l;
+    
+	for (l=0; l<42; l++){
+    	if(numeroGado == matrizGado[l])
+		{
+    		printf("O número do gado já foi digitado! no número %d \n", l);
+    		system("pause");
+    		break;
+    		
+    		
 		}
-		printf("\n");		
 	}
-	
-	for(line = 0; line<5; line++){ 			//Verifica se o número é divisível por 3 e imprime o resultado
-		for(column = 0; column<5; column++){
-			if(matrizA[line][column] % 3 == 0){
-				printf("O número %d é divisível por 3, e está na linha %d e coluna %d \n", matrizA[line][column], line+1, column+1);
-				printf("--------------------------------------------------------- \n");
-			}
-			
-		}			
-	}
+
 }
 
-int main(int argc, char *argv[]) {
+int main()
+{
+    setlocale(LC_ALL,"Portuguese");
 	
-	setlocale(LC_ALL, "Portuguese");
-	
-	int matriz[5][5] = {{15,9,23,43,49},
-                        {3,36,55,53,18},
-                        {12,42,51,57,34},
-                        {6,32,28,25,62},
-                        {72,91,81,16,41}}; 
-                       
-    identificarDivisivelPor3(matriz); //Chamando a função passando como parametro a matriz
+    int par, impar,i,j,k, numberGado;
+    par = 0;
+    impar = 0;
+    int gadoPar[42];
+    int gadoImpar[42];
     
-	
-	return 0;
-	}
+    
+    
+    printf("#####Sistema de contagem de gados### \n");
+    printf("Por favor digite o número do gado: \n");
+    
+
+    for(i=0; i<42; i++){
+       
+        scanf("%d", &numberGado);
+        fflush(stdin);
+        
+            if((numberGado % 2) != 0){
+                
+		existeGado(numberGado, gadoImpar); //Chamando a Subrotina para verificar se o gado já foi digitado
+				
+                printf("O gado %d vai  pro pasto ímpar \n", numberGado);
+                             
+                gadoImpar[impar] = numberGado;
+                impar = impar + 1;
+                                                
+                //printf("o i é %d, o par é %d \n", i, par);
+                                
+            }else{
+                
+		existeGado(numberGado, gadoPar);
+				
+                printf("O gado %d vai pro pasto par \n", numberGado);
+                           
+                gadoPar[par] = numberGado;
+                par = par + 1;
+                                              
+                //printf("o i é %d, o ímpar é %d \n", i, impar);
+                                
+            }
+    }
+    system("cls");
+    
+    printf("Os gados pares são:");
+    for (j=0; j<par; j++){
+       printf("%d - ", gadoPar[j]);
+       
+   }
+   printf("\n Os gados ímpares são:");
+    for (k=0; k<impar; k++){
+       printf("%d - ", gadoImpar[k]);
+    }
+
+   
+    
+}
